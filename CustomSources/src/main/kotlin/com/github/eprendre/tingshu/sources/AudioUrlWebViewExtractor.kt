@@ -15,5 +15,6 @@ object AudioUrlWebViewExtractor : AudioUrlExtractor {
         script: String = "(function() { return ('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'); })();",
         parse: (String) -> String?
     ) {
+        throw RuntimeException("Stub!")
     }
 }

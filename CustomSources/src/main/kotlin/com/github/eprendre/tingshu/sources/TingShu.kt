@@ -7,7 +7,7 @@ import com.github.eprendre.tingshu.utils.CategoryMenu
 
 abstract class TingShu {
     /**
-     * 随便生成一个 UUID 即可, 用来判断一本书属于哪个源。
+     *  用来判断一本书属于哪个源，不能和其它源有重复的情况，可以用测试里的一个类生成一个 UUID。
      */
     abstract fun getSourceId(): String
     /**
@@ -54,10 +54,17 @@ abstract class TingShu {
     open fun isMultipleEpisodePages() = false
 
     /**
-     *
+     * 两个地方会调用这个方法，一是列表页弹窗，二是播放页获取所有章节。<br>
+     * 因为有些源在列表提供的部分信息丢失，可以从播放详情页返回更加全面的封面、作者、播音等信息。
+     * 如果章节数一个页面即可加载完，可以不用理会 loadEpisodes 为 false 的情况，直接返回章节列表以统计实际章节数。
+     * 但是如果章节需要翻页获取，loadEpisodes 为 true， loadFullPages 为 false 时只加载第一页。
+     * loadEpisodes 为 true, loadFullPages 也为 true 时，遍历所有页的章节。
      */
     abstract fun getBookDetailInfo(bookUrl: String, loadEpisodes: Boolean = true, loadFullPages: Boolean = true): BookDetail
 
+    /**
+     * 翻页加载是耗时操作，如果此方法触发，需要取消掉翻页加载的操作。
+     */
     open fun reset() = run { }
 
     /**
