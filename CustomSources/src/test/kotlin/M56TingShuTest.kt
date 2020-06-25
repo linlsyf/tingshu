@@ -1,3 +1,5 @@
+import com.github.eprendre.tingshu.utils.Book
+import com.github.eprendre.tingshu.utils.Episode
 import org.jsoup.Jsoup
 import org.junit.Test
 import java.net.URLEncoder
@@ -71,7 +73,15 @@ class M56TingShuTest {
             }
             val status = ""
             val intro = ov.selectFirst(".nr").text()
-            list.add(Book(coverUrl, bookUrl, title, author, artist, status, intro))
+            list.add(
+                Book(
+                    coverUrl,
+                    bookUrl,
+                    title,
+                    author,
+                    artist
+                )
+            )
         }
 
         println("总页数: $totalPage")
@@ -145,7 +155,15 @@ class M56TingShuTest {
             }
             val status = ""
             val intro = ov.selectFirst(".nr").text()
-            list.add(Book(coverUrl, bookUrl, title, author, artist, status, intro))
+            list.add(
+                Book(
+                    coverUrl,
+                    bookUrl,
+                    title,
+                    author,
+                    artist
+                )
+            )
         }
         println(nextUrl)
         println("$currentPage / $totalPage")
