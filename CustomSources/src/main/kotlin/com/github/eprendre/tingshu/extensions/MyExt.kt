@@ -17,7 +17,7 @@ fun splitQuery(url: URL): LinkedHashMap<String, String> {
 }
 
 /**
- * 是否使用 PC 版的 UA，从 app 里的配置读取。
+ * 是否使用 PC 版的 UA，UA 字段会自动从 app 里的配置读取。
  */
 fun Connection.config(isDesktop: Boolean = false): Connection {
     throw RuntimeException("Stub!")

@@ -10,6 +10,7 @@ object AudioUrlJsoupExtractor : AudioUrlExtractor {
      * @param isDesktop true 请求加上 PC UA, false 请求加上手机 UA
      * @param parse 处理返回的 org.jsoup.nodes.Document
      */
+    @JvmOverloads
     fun setUp(isDesktop: Boolean = false, parse: (Document) -> String) {
         throw RuntimeException("Stub!")
     }

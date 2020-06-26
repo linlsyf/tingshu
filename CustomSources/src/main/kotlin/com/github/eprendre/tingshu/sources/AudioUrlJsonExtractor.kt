@@ -10,6 +10,7 @@ object AudioUrlJsonExtractor : AudioUrlExtractor {
      * @param isDesktop true 请求加上 PC UA, false 请求加上手机 UA
      * @param parse 处理json，参数类型为 FuelJson，通过 FuelJson.obj() 得到 JSONObject, FuelJson.array() 得到 JSONArray
      */
+    @JvmOverloads
     fun setUp(isDesktop: Boolean = false, parse: (FuelJson) -> String) {
         throw RuntimeException("Stub!")
     }
